@@ -28,6 +28,7 @@ pipeline {
       sh 'ssh root@node4 \'uptime\''
       sh 'ssh root@node5 \'uptime\''
       sh 'ssh root@node6 \'uptime\''
+        }
       }
+    }
   }
-}

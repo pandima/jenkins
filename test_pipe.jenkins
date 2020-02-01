@@ -1,0 +1,23 @@
+#!groovy
+properties([disableConcurrentBuilds()])
+pipeline {
+  agent {
+    label 'master'
+}
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+    timestamps()
+}
+  stages {
+    stage("Preparations"){
+    steps {
+      sh 'ssh root@node1 \'hostname\''
+      sh 'ssh root@node2 \'hostname\''
+      sh 'ssh root@node3 \'hostname\''
+      sh 'ssh root@node4 \'hostname\''
+      sh 'ssh root@node5 \'hostname\''
+      sh 'ssh root@node6 \'hostname\''
+      }
+    }
+  }
+}

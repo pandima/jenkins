@@ -19,7 +19,6 @@ pipeline {
       sh 'ssh root@node6 \'hostname\''
       }
     }
-    stages {
     stage("Preparations"){
     steps {
       sh 'ssh root@node1 \'uptime\''
@@ -28,7 +27,7 @@ pipeline {
       sh 'ssh root@node4 \'uptime\''
       sh 'ssh root@node5 \'uptime\''
       sh 'ssh root@node6 \'uptime\''
-        }
-      }
+       }
     }
   }
+}

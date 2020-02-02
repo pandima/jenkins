@@ -14,7 +14,7 @@ pipeline {
     steps {
       echo "======== start building ========="
       dir ('toolbox') {
-      	sh 'docker build -t toolbox:latest . '
+      	sh 'docker build -t pande/toolbox:latest . '
         }
       }
     }

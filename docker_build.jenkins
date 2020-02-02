@@ -9,17 +9,14 @@ pipeline {
     timestamps()
 }
   stages {
-    stage("Preparations1"){
+    stage("Create docker image"){
     steps {
-      sh 'ssh root@node1 \'hostname\''
-      sh 'ssh root@node2 \'hostname\''
-      sh 'ssh root@node3 \'hostname\''
-      sh 'ssh root@node4 \'hostname\''
-      sh 'ssh root@node5 \'hostname\''
-      sh 'ssh root@node6 \'hostname\''
-      }
+      echo "======== start building ========"
+      dir ('toolbox') {
+      	sh 'docker build .'
+       }
     }
-    stage("Preparations2"){
+    stage("Hosts uptime"){
     steps {
       sh 'ssh root@node1 \'uptime\''
       sh 'ssh root@node2 \'uptime\''

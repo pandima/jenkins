@@ -15,7 +15,7 @@ pipeline {
       echo "======== start building ========"
       dir ('toolbox') {
       	sh 'docker build .'
-        }
+         }
       }
     }
   }

@@ -14,17 +14,7 @@ pipeline {
       echo "======== start building ========"
       dir ('toolbox') {
       	sh 'docker build .'
-       }
-    }
-    stage("Hosts uptime"){
-    steps {
-      sh 'ssh root@node1 \'uptime\''
-      sh 'ssh root@node2 \'uptime\''
-      sh 'ssh root@node3 \'uptime\''
-      sh 'ssh root@node4 \'uptime\''
-      sh 'ssh root@node5 \'uptime\''
-      sh 'ssh root@node6 \'uptime\''
-       }
+        }
       }
     }
   }

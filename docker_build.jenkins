@@ -34,5 +34,6 @@ pipeline {
         sh '''
         docker push pande/toolbox:latest
         '''
+      }
+    }
   }
-}

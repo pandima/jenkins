@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage("Create docker image"){
     steps {
-      echo "======== start building ========"
+      echo "======== start building ========="
       dir ('toolbox') {
       	sh 'docker build -t toolbox:latest . '
         }

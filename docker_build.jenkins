@@ -10,7 +10,17 @@ pipeline {
     timestamps()
 }
   stages {
-    stage("Create docker image"){
+    stage("Docker login") {
+      steps {
+        echo "===== Docker login ====="
+        withCredentials([usernamePassword(credentialsId: 'dockerhub_pande', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+          sh """
+          docker login -u $USERNAME -p $PASSWORD
+          """
+        }
+      }
+    }
+    stage("Create docker image") {
     steps {
       echo "======== start building ========="
       dir ('toolbox') {
@@ -18,5 +28,11 @@ pipeline {
         }
       }
     }
+    stage("Docker push") {
+      steps {
+        echo "======== start pushing image"
+        sh '''
+        docker push pande/toolbox:latest
+        '''
   }
 }

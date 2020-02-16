@@ -16,7 +16,7 @@ pipeline {
       sh 'ssh root@node3 \'hostname\''
       sh 'ssh root@node4 \'hostname\''
       sh 'ssh root@node5 \'hostname\''
-      sh 'ssh root@node6 \'hostname\''
+#      sh 'ssh root@node6 \'hostname\''
       }
     }
     stage("Preparations2"){
@@ -26,7 +26,7 @@ pipeline {
       sh 'ssh root@node3 \'uptime\''
       sh 'ssh root@node4 \'uptime\''
       sh 'ssh root@node5 \'uptime\''
-      sh 'ssh root@node6 \'uptime\''
+#      sh 'ssh root@node6 \'uptime\''
        }
     }
   }
